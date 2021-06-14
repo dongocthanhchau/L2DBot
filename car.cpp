@@ -1,5 +1,5 @@
 #include "car.h"
-
+extern unsigned long t;
 void moveMotor(int left, int right, bool dir){
   digitalWrite(right,dir);
   digitalWrite(left,!dir);
