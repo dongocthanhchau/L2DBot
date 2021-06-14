@@ -83,3 +83,55 @@ void m8(void){
   moveMotor(LC,RC,0);
   moveMotor(LD,RD,0);
 }
+void turnRight(void){
+  moveMotor(LA,RA,0);
+  moveMotor(LB,RB,1);
+  moveMotor(LC,RC,0);
+  moveMotor(LD,RD,1);
+}
+void turnLeft(void){
+  moveMotor(LA,RA,1);
+  moveMotor(LB,RB,0);
+  moveMotor(LC,RC,1);
+  moveMotor(LD,RD,0);
+}
+void carControl(int cmnd){
+  Serial.println(cmnd);
+  t=millis()+1000;
+  if (cmnd ==1){
+    m1();
+  }
+  else if (cmnd==2){
+    m2();
+  }
+  else if (cmnd==3){
+    m3();
+  }
+  else if (cmnd==4){
+    m4();
+  }
+  else if (cmnd==5){
+    m5();
+  }
+  else if (cmnd==6){
+    m6();
+  }
+  else if (cmnd==7){
+    m7();
+  }
+  else if (cmnd==8){
+    m8();
+  }
+  else if (cmnd==9){
+    m9();
+  }
+  else if (cmnd==11){
+	turnLeft();
+	t -= 500;
+  }
+  else if (cmnd==12){
+	turnRight();
+	t -= 500;
+  }
+  else stopAll();
+}

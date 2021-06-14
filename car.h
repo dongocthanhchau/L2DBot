@@ -25,5 +25,7 @@ void m6(void);
 void m7(void);
 void m8(void);
 void m9(void);
-
+void turnLeft(void);
+void turnRight(void);
+void carControl(int cmnd);
 #endif

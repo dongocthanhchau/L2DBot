@@ -35,38 +35,7 @@ void hexdump(const void *mem, uint32_t len, uint8_t cols = 16) {
   //Code here
 }
 
-void carControl(int cmnd){
-  Serial.println(cmnd);
-  t=millis()+1000;
-  if (cmnd ==1){
-    m1();
-  }
-  else if (cmnd==2){
-    m2();
-  }
-  else if (cmnd==3){
-    m3();
-  }
-  else if (cmnd==4){
-    m4();
-  }
-  else if (cmnd==5){
-    m5();
-  }
-  else if (cmnd==6){
-    m6();
-  }
-  else if (cmnd==7){
-    m7();
-  }
-  else if (cmnd==8){
-    m8();
-  }
-  else if (cmnd==9){
-    m9();
-  }
-  else stopAll();
-}
+
 void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 
 	switch(type) {
@@ -109,18 +78,15 @@ void setup() {
 	//Serial.setDebugOutput(true);
 	USE_SERIAL.setDebugOutput(true);
 
-	USE_SERIAL.println();
-	USE_SERIAL.println();
-	USE_SERIAL.println();
 
 	for(uint8_t t = 4; t > 0; t--) {
 		USE_SERIAL.printf("[SETUP] BOOT WAIT %d...\n", t);
 		USE_SERIAL.flush();
-		delay(1000);
+		delay(300);
 	}
 
 	WiFiMulti.addAP("L2D", "l2dadambot");
-  WiFiMulti.addAP("CRETA-KD","yoursolution");
+    WiFiMulti.addAP("CRETA-KD","yoursolution");
 
 	WiFi.disconnect();
   USE_SERIAL.print("Connecting Wifi");
@@ -145,7 +111,7 @@ void setup() {
 
 void loop() {
 	webSocket.loop();
-  if (millis()-t<5){
+  if (millis()-t<10){
     stopAll();
     t=0;
     //stopAll();
