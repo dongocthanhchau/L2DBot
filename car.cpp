@@ -133,5 +133,8 @@ void carControl(int cmnd){
 	turnRight();
 	t -= 500;
   }
-  else stopAll();
+  else {
+    stopAll();
+    t=0;
+  }
 }
