@@ -125,11 +125,11 @@ void carControl(int cmnd){
   else if (cmnd==9){
     m9();
   }
-  else if (cmnd==11){
+  else if (cmnd==60){
 	turnLeft();
 	t -= 500;
   }
-  else if (cmnd==12){
+  else if (cmnd==66){
 	turnRight();
 	t -= 500;
   }
