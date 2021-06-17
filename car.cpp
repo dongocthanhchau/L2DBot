@@ -3,12 +3,10 @@ extern unsigned long t;
 void moveMotor(int left, int right, bool dir){
   digitalWrite(right,dir);
   digitalWrite(left,!dir);
-  delay(1);
 }
 void stopMotor(int left, int right){
   digitalWrite(right, 0);
   digitalWrite(left, 0);
-  delay(1);
 }
 void motorInit(void){
   pinMode(LA,OUTPUT);
@@ -110,7 +108,7 @@ void carControl(int cmnd){
   else if (cmnd==4){
     m4();
   }
-  else if (cmnd==5){
+  else if (cmnd==0){
     m5();
   }
   else if (cmnd==6){

@@ -68,4 +68,8 @@ void webSocketInit(void){
 }
 void webSocketLoop(void){
     webSocket.loop();
+	//check connection
+	if (millis()%600000<10) 
+		if (!webSocket.sendTXT("Connected"))
+			ESP.restart();
 }
